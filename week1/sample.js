@@ -15,4 +15,14 @@ console.log(sum(10,20))
 
 
 
-//////
+//////object ////
+
+const object = {
+    name:'alan',
+    age:78,
+    helo:true
+}
+object.phone = 12345678
+delete object.phone
+console.log(object)
+
