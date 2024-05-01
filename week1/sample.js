@@ -36,3 +36,17 @@ set.clear()   //to clear all elements
 for (const item of set) {
     console.log(item);
 }
+
+
+
+////map //////
+
+const map = new Map([['a',10],['v' ,30]])
+map.set('c',45) //To add an element 
+console.log(map.has('c')) // To check if any element exist 
+console.log(map.size) // To check the size of array
+map.delete('c')  /// To delete an element in array 
+map.clear() // To delete the size of array 
+for(const [key,value] of map){
+    console.log(`${key}:${value}`)
+}
