@@ -4,27 +4,27 @@ class Queue {
   }
 
 
-  //to add an element to the queue
+ 
 
-  enqueue(element){
+  enqueue(element){  //to add an element to the queue
     this.items.push((element))
   }
 
-  //Removes the element from the queue
+ 
 
-  dequeue(){
+  dequeue(){ //Removes the element from the queue
       return this.items.shift()  
   }
 
-  //checking if the element in queue
+ 
 
-  isEmpty (){
+  isEmpty (){  //checking if the element in queue
       return this.items === 0
   }
 
-  //Getting the value at the front of the queue
+ 
+  peek(){  //Getting the value at the front of the queue
 
-  peek(){
     if(!this.isEmpty()){
         return this.items[0]
     }
