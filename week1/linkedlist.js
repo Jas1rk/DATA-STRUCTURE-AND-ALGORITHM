@@ -47,7 +47,7 @@ class LinkedList {
 
     
 
-    insert(value,index){ //insert new node to linked list
+    insert(value,index){ //insert new node to linked list 
         if(index < 0 || index > this.size){
             return
         }
@@ -66,7 +66,7 @@ class LinkedList {
         }
     }
 
-    reverse(){
+    reverse(){ //reversing the nodes by order
        let preview = null
        let current = this.head
        let next = null
@@ -78,6 +78,25 @@ class LinkedList {
           
        }
        this.head = preview
+    }
+
+    removeAt(index){
+        if(index<0||index>this.size){
+            return
+        }
+        let curr = this.head
+        if(index===0){
+            this.head = curr.next
+           
+        }else{
+            let prev = null
+            for(let i=0;i<index;i++){
+                prev = curr
+                curr = curr.next
+            }
+            prev.next = curr.next 
+            this.size--
+        }
     }
 
     print(){
@@ -101,9 +120,9 @@ class LinkedList {
 const list = new LinkedList()
 console.log('get size',list.getSize())
 list.insert(10,0)
-list.insert(20,0)
-list.insert(30,1)
-list.insert(40,0)
-list.reverse()
-
+list.insert(20,1)
+list.insert(30,2)
+list.insert(40,3)
+list.insert(60,4)
+list.removeAt(3)
 list.print()
