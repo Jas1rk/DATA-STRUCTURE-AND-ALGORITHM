@@ -66,6 +66,20 @@ class LinkedList {
         }
     }
 
+    reverse(){
+       let preview = null
+       let current = this.head
+       let next = null
+       while(current){
+          next = current.next
+          current.next = preview
+          preview = current
+          current = next
+          
+       }
+       this.head = preview
+    }
+
     print(){
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -87,16 +101,9 @@ class LinkedList {
 const list = new LinkedList()
 console.log('get size',list.getSize())
 list.insert(10,0)
-list.print()
-
 list.insert(20,0)
-list.print()
-
 list.insert(30,1)
-list.print()
-
 list.insert(40,0)
-list.print()
+list.reverse()
 
-list.prepend(60) // if have not spcified the index i add or prepend at the begin
 list.print()
