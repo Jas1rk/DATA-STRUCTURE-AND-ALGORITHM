@@ -99,6 +99,19 @@ class LinkedList {
         }
     }
 
+    removeDublicate(){
+        let curr  = this.head
+        while(curr!==null && curr.next!==null){
+            if(curr.value === curr.next.value){
+                curr.next = curr.next.next
+                this.size--
+        
+            }else{
+                curr = curr.next
+            }
+        }
+    }
+
     print(){
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -119,10 +132,15 @@ class LinkedList {
 
 const list = new LinkedList()
 console.log('get size',list.getSize())
-list.insert(10,0)
-list.insert(20,1)
-list.insert(30,2)
-list.insert(40,3)
-list.insert(60,4)
-list.removeAt(3)
+list.append(1)
+list.append(1)
+list.append(2)
+list.append(2)
+list.append(3)
+list.append(3)
+list.append(4)
+list.append(4)
+list.append(5)
+list.append(5)
+list.removeDublicate()
 list.print()
