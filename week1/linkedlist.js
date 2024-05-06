@@ -80,7 +80,7 @@ class LinkedList {
        this.head = preview
     }
 
-    removeAt(index){
+    removeAt(index){ //removing index
         if(index<0||index>this.size){
             return
         }
@@ -99,7 +99,7 @@ class LinkedList {
         }
     }
 
-    removeDublicate(){
+    removeDublicate(){ //removing the dublicates 
         let curr  = this.head
         while(curr!==null && curr.next!==null){
             if(curr.value === curr.next.value){
@@ -109,6 +109,29 @@ class LinkedList {
             }else{
                 curr = curr.next
             }
+        }
+    }
+
+    removeValue(value){ //removing the values 
+        if(this.isEmpty()){
+            return null
+        }
+        if(this.head.value === value){
+            this.head = this.head.next
+            this.size--
+            return value
+        }else{
+            let prev = this.head
+            while(prev.next && prev.next.value!==value){
+                prev = prev.next
+            }
+            if(prev.next){
+               const removenode = prev.next
+                prev.next = removenode.next
+                this.size--
+                return value
+            }
+            return null
         }
     }
 
@@ -132,15 +155,16 @@ class LinkedList {
 
 const list = new LinkedList()
 console.log('get size',list.getSize())
-list.append(1)
-list.append(1)
-list.append(2)
-list.append(2)
-list.append(3)
-list.append(3)
-list.append(4)
-list.append(4)
-list.append(5)
-list.append(5)
-list.removeDublicate()
+
+list.append(10)
+list.append(20)
+
+list.append(30)
+
+list.append(40)
+
+list.append(50)
+
+
+
 list.print()
