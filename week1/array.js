@@ -27,3 +27,17 @@ const array = [10,20,30,40,50,60]
 const elements = largestThree(array)
 console.log(elements)
   
+
+
+function secondLarge(arr){ //finding the second largest element
+    arr.sort((a,b)=>{
+
+        return b-a
+    })
+
+    
+    return arr[1]
+}
+const array = [1,2,3,4,6]
+const result = secondLarge(array)
+console.log('This is the second largest element',result)
