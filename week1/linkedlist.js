@@ -66,6 +66,7 @@ class LinkedList {
         }
     }
 
+
     reverse(){ //reversing the nodes by order
        let preview = null
        let current = this.head
@@ -135,6 +136,23 @@ class LinkedList {
         }
     }
 
+    search(value){ //serching index in linked list
+        if(this.isEmpty()){
+            return -1
+        }
+        let i = 0
+        let curr = this.head
+        while(curr){
+            if(curr.value === value){
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+       
+    }
+
     print(){
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -168,3 +186,4 @@ list.append(50)
 
 
 list.print()
+console.log(list.search(40))
