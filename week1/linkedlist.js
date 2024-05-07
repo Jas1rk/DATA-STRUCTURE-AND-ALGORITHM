@@ -66,6 +66,7 @@ class LinkedList {
         }
     }
 
+
     reverse(){ //reversing the nodes by order
        let preview = null
        let current = this.head
@@ -149,6 +150,7 @@ class LinkedList {
             i++
         }
         return -1
+       
     }
 
     print(){
