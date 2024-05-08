@@ -187,3 +187,134 @@ list.append(50)
 
 list.print()
 console.log(list.search(40))
+
+
+
+//////////////////////////////////////// New Linked list to delete frond and end ///////////////////////////////////////////////////
+
+
+
+
+class Node {
+    constructor(value){
+        this.value = value
+        this.next = null
+    }
+}
+
+class LinkedList {
+    constructor(){
+        this.head = null
+        this.tail = null
+        this.size = 0
+    }
+
+    getSize(){
+        return this.size
+    }
+    isEmpty(){
+        return this.size === 0
+    }
+
+    prepend(value){
+        const node = new Node(value)
+        if(this.isEmpty()){
+            this.head = node
+            this.tail = node
+        }else{
+            node.next = this.head
+            this.head = node
+        }
+        this.size++
+    }
+
+    append(value){
+        const node = new Node(value)
+        if(this.isEmpty()){
+            this.head = node
+            this.tail = node
+        }else{
+            this.tail.next = node
+            this.tail = node 
+        }
+        this.size++
+    }
+
+    removeFront(){
+        if(this.isEmpty()){
+            return null
+        }
+        const value = this.head.value
+        this.head = this.head.next
+        this.size--
+        return value
+    }
+
+    removeEnd(){
+        if(this.isEmpty()){
+            return null
+        }
+
+        const value = this.tail.value
+        if(this.size===1){
+            this.head = null
+            this.tail = null
+
+        }else{
+            let prev = this.head
+            while(prev.next!==this.tail){
+                prev = prev.next
+            }
+            prev.next = null
+            this.tail = prev
+        }
+        this.size--
+        return value
+    }
+
+    search(value){
+        if(this.isEmpty()){
+            return -1
+        }
+        let i = 0
+        let curr = this.head
+        while(curr){
+            if(curr.value === value){
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return -1
+    }
+
+    print(){
+        if(this.isEmpty()){
+            console.log('list is empty')
+        }else{
+            let curr = this.head
+            let list = ''
+            while(curr){
+                list += `${curr.value}`
+                if(curr.next){
+                    list += ','
+                }
+                curr = curr.next
+            }
+            console.log(list)
+        }
+    }
+
+
+}
+
+const list1 = new LinkedList()
+list1.prepend(0)
+list1.append(1)
+list1.append(2)
+list1.append(3)
+list1.append(4)
+console.log(list1.search(2))
+list1.removeFront()
+list1.removeEnd()
+list1.print()
