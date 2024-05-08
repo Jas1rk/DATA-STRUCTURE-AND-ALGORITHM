@@ -44,3 +44,39 @@
 
 
 
+
+class Node {
+    constructor(val,next = null){
+        this.val = val
+        this.next = next
+    }
+}
+
+const arrayToLinkedlist = ((arr)=>{
+    if(!arr.length)return null
+    const node = new Node(arr[0])
+    let curr = node
+    for(let i=1;i<arr.length;i++){
+        curr.next = new Node(arr[i])
+        curr = curr.next 
+     
+    }
+    
+    return node
+})
+
+const print = (node)=>{
+    let curr = node
+    console.log(curr)
+    let list = ''
+    while(curr){
+        list += `${curr.val}`
+        curr = curr.next
+    }
+    console.log(list)
+}
+
+const arr = [1,2,3,4]
+const head = arrayToLinkedlist(arr)
+console.log('Converted to linked list:')
+print(head)
