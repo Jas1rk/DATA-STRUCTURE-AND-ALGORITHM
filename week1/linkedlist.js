@@ -153,7 +153,7 @@ class LinkedList {
        
     }
 
-    print(){
+    print (){
         if(this.isEmpty()){
             console.log('The list is empty')
         }else{
