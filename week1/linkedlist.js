@@ -190,7 +190,7 @@
 
 
 
-//////////////////////////////////////// New Linked list to delete frond and end ///////////////////////////////////////////////////
+//////////////////////////////////////// New Linked list to delete frond and end   [DOUBLY LINKED LIST] ///////////////////////////////////////////////////
 
 
 
@@ -199,6 +199,7 @@ class Node {
     constructor(value){
         this.value = value
         this.next = null
+        this.prev = null
     }
 }
 
@@ -223,6 +224,7 @@ class LinkedList {
             this.tail = node
         }else{
             node.next = this.head
+            this.head.prv = node
             this.head = node
         }
         this.size++
@@ -234,6 +236,7 @@ class LinkedList {
             this.head = node
             this.tail = node
         }else{
+            node.prev = this.prev
             this.tail.next = node
             this.tail = node 
         }
@@ -246,6 +249,11 @@ class LinkedList {
         }
         const value = this.head.value
         this.head = this.head.next
+        if(this.head){
+            this.head.prev = null
+        }else{
+            this.tail = null
+        }
         this.size--
         return value
     }
@@ -256,6 +264,12 @@ class LinkedList {
         }
 
         const value = this.tail.value
+        this.tail = this.tail.prev
+        if(this.tail){
+            this.tail.next = null
+        }else{
+            this.head = null
+        }
         if(this.size===1){
             this.head = null
             this.tail = null
@@ -320,3 +334,12 @@ module.exports = LinkedList
 // list1.removeFront()
 // list1.removeEnd()
 // list1.print()
+
+
+
+
+
+
+
+
+
