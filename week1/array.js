@@ -114,3 +114,18 @@ function uniqueNumber(arr) {
 const arr1 = [1, 1, 2, 2, 3, 3, 4, 4];
 console.log('result==>',uniqueNumber(arr1))
 console.log('sum===',sum)
+
+
+
+
+////////merging////////
+
+const array1 = [1,2,3]
+const array2 = [4,5,6]
+for(let i=0;i<array2.length;i++){
+    array1.push(array2[i])
+}
+console.log('merged array',array1)
+
+
+//////
