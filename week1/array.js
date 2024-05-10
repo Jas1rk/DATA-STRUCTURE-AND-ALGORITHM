@@ -80,3 +80,17 @@ const arr = [1,2,3,4]
 const head = arrayToLinkedlist(arr)
 console.log('Converted to linked list:')
 print(head)
+
+
+
+
+///////////////////////finding unique element in array //////
+
+
+const array  =  [1,1,2,2,3,3,4,4] /// finding unique and sum of unique
+const unique = [...new Set(array)]
+let sum = 0
+for(let i=0;i<unique.length;i++){
+    sum += unique[i] 
+}
+console.log(sum)

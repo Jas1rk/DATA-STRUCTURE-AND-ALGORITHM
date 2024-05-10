@@ -30,6 +30,7 @@ class LinkedListQueue {
     }
 }
 
+
 const queue = new LinkedListQueue()
 console.log(queue.isEmpty())
 queue.engueue(100)
