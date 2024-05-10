@@ -80,3 +80,52 @@ const arr = [1,2,3,4]
 const head = arrayToLinkedlist(arr)
 console.log('Converted to linked list:')
 print(head)
+
+
+
+
+///////////////////////finding unique element in array //////
+
+
+const array  =  [1,1,2,2,3,3,4,4] /// finding unique and sum of unique using set Method ///
+const unique = [...new Set(array)]
+let sum = 0
+for(let i=0;i<unique.length;i++){
+    sum += unique[i] 
+}
+console.log(sum)
+
+
+
+//////using forloop///////
+
+function uniqueNumber(arr) {
+    const result = [];
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (!result.includes(arr[i])) {
+            result.push(arr[i]);
+            sum += arr[i];
+        }
+    }
+    return result
+}
+
+const arr1 = [1, 1, 2, 2, 3, 3, 4, 4];
+console.log('result==>',uniqueNumber(arr1))
+console.log('sum===',sum)
+
+
+
+
+////////merging////////
+
+const array1 = [1,2,3]
+const array2 = [4,5,6]
+for(let i=0;i<array2.length;i++){
+    array1.push(array2[i])
+}
+console.log('merged array',array1)
+
+
+//////
