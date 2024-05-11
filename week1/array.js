@@ -160,5 +160,41 @@ console.log(factorical(5))
 console.log(factorical(8))
 
 
+//////////////////////// prime number////////////////////
 
-////////////////////////factorical number////////////////////
+function isPrime(n){
+    if(n<2)return false
+    for(let i=2;i<n;i++){
+        if(n%i==0)return false
+    }
+    return true
+}
+// console.log(isPrime(2))
+// console.log(isPrime(10))
+// console.log(isPrime(4))
+
+
+
+
+/////////////////////////power of two ///
+
+
+function powerOfTwo(n){
+    if(n<1)return false
+    while(n>1){
+        if(n%2!==0){
+            return false
+        }
+        n=n/2
+    }
+    return true
+
+}
+
+console.log('this',powerOfTwo(5))
+console.log(powerOfTwo(8))
+
+
+
+
+///////////////////////////////
