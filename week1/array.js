@@ -145,4 +145,20 @@ console.log(fibonacci(10))
 
 
 
-/////////////////////////////////
+/////////////////////////////////factorical Number //////
+
+
+function factorical(n){
+    let result = 1
+    for(let i=2;i<=n;i++){
+        result = result * i
+    }
+    return result
+}
+console.log(factorical(3))
+console.log(factorical(5))
+console.log(factorical(8))
+
+
+
+////////////////////////factorical number////////////////////
