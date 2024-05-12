@@ -169,9 +169,9 @@ function isPrime(n){
     }
     return true
 }
-// console.log(isPrime(2))
-// console.log(isPrime(10))
-// console.log(isPrime(4))
+console.log(isPrime(2))
+console.log(isPrime(10))
+console.log(isPrime(4))
 
 
 
