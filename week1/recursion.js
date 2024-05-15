@@ -113,6 +113,15 @@ class LinkedList {
         this.size = 0
     }
 
+    recursivePreppend(value,node = this.head){
+        if(node === null){
+            this.head = new Node(value)
+            return this.head
+        }
+        node.next = this.recursivePreppend(value , node.next)
+        return node
+    }
+
     recursiveAppend(value, node = this.head){ ///if the list empty
         if(this.head === null){
             this.head = new Node(value)
@@ -129,6 +138,27 @@ class LinkedList {
 
         this.recursiveAppend(value,node.next)
     }
+
+     mergeTwo(list1,list2){
+        const mergedList = new LinkedList()
+        mergedList.head =  this.toMerge(list1.head,list2.head)
+        return mergedList
+     }
+
+     toMerge(l1,l2){
+        if(l1===null) return l2
+        if(l2===null) return l1
+
+        if(l1.value <= l2.value){
+            l1.next = this.toMerge(l1.next , l2)
+            return l1
+        }else{
+            l2.next = this.toMerge(l2.next , l1)
+            return l2
+        }
+     }
+    
+
 
     print(){
         if(this.head === null){
@@ -150,10 +180,20 @@ class LinkedList {
 
 const list = new LinkedList()
 list.print()
-list.recursiveAppend(100)
-list.recursiveAppend(200)
-list.recursiveAppend(300)
+console.log('first list')
+list.recursiveAppend(1)
+list.recursiveAppend(2)
+list.recursiveAppend(3)
 list.print()
+console.log('second list')
+const list1 = new LinkedList()
+list1.recursiveAppend(4)
+list1.recursiveAppend(5)
+list1.recursiveAppend(6)
+list1.print()
 
+const merged =  new LinkedList().mergeTwo(list,list1)
+console.log('after merging')
+merged.print()
 
 
