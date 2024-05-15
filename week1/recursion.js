@@ -184,6 +184,19 @@ class LinkedList {
      }
     
 
+     removeDubRecursive(node = this.head){
+        if(node === null || node.next === null){
+            return null
+        }
+        if(node.value === node.next.value){
+            node.next = node.next.next
+            this.size--
+            this.removeDubRecursive(node)
+        }else{
+            this.removeDubRecursive(node.next)
+        }
+     }
+
 
     print(){
         if(this.head === null){
@@ -207,13 +220,19 @@ const list = new LinkedList()
 list.print()
 console.log('first list')
 list.recursiveAppend(1)
+list.recursiveAppend(1)
 list.recursiveAppend(2)
+list.recursiveAppend(2)
+list.recursiveAppend(3)
 list.recursiveAppend(3)
 list.print()
 console.log('second list')
 const list1 = new LinkedList()
 list1.recursiveAppend(4)
+list1.recursiveAppend(4)
 list1.recursiveAppend(5)
+list1.recursiveAppend(5)
+list1.recursiveAppend(6)
 list1.recursiveAppend(6)
 list1.print()
 
@@ -224,4 +243,6 @@ console.log('reversing ')
 merged.recursiveReverse()
 merged.print()
 console.log('searching',merged.recursiveSearch(5))
+merged.removeDubRecursive()
+merged.print()
 
