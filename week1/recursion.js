@@ -139,7 +139,7 @@ class LinkedList {
         this.recursiveAppend(value,node.next)
     }
 
-     mergeTwo(list1,list2){
+     mergeTwo(list1,list2){ ////merging
         const mergedList = new LinkedList()
         mergedList.head =  this.toMerge(list1.head,list2.head)
         return mergedList
@@ -156,6 +156,20 @@ class LinkedList {
             l2.next = this.toMerge(l2.next , l1)
             return l2
         }
+     }
+
+     recursiveReverse(){ ///reversing 
+        this.head = this._recursiveReverse(this.head)
+     }
+
+     _recursiveReverse(node){
+        if(node===null||node.next===null){
+            return node
+        }
+        const newHead = this._recursiveReverse(node.next)
+        node.next.next = node
+        node.next = null
+        return newHead
      }
     
 
@@ -195,5 +209,7 @@ list1.print()
 const merged =  new LinkedList().mergeTwo(list,list1)
 console.log('after merging')
 merged.print()
-
+console.log('reversing ')
+merged.recursiveReverse()
+merged.print()
 
