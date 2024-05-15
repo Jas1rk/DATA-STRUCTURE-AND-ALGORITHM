@@ -153,6 +153,19 @@ class LinkedList {
        
     }
 
+    findMiddle(){
+        if(this.isEmpty()){
+            return null
+        }
+        let right = this.head
+        let left = this.head
+        while(left!==null&&left.next!==null){
+            right = right.next
+            left = left.next.next
+        }
+        return right.value
+    }
+
 
     mergeTwo(list1,list2){
         const  dummy = new Node(0)
@@ -225,11 +238,15 @@ const result2 = new LinkedList()
 result2.append(40)
 result2.append(50)
 result2.append(60)
+result2.append(60)
 
 result2.print()
 
 const merged = result1.mergeTwo(result1,result2)
+console.log('finding middle',merged.findMiddle())
 merged.print()
+
+
 
 
 

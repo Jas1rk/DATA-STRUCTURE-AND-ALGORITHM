@@ -171,6 +171,17 @@ class LinkedList {
         node.next = null
         return newHead
      }
+
+     recursiveSearch(value,node = this.head){
+        if(node === null){
+            return -1
+        }
+        if(node.value === value){
+            return 0
+        }
+        const result = this.recursiveSearch(value,node.next)
+        return result === -1 ? -1 : result + 1
+     }
     
 
 
@@ -212,4 +223,5 @@ merged.print()
 console.log('reversing ')
 merged.recursiveReverse()
 merged.print()
+console.log('searching',merged.recursiveSearch(5))
 
