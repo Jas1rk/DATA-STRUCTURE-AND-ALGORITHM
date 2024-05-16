@@ -197,6 +197,25 @@ class LinkedList {
         }
      }
 
+     recursiveRemoveValue(node,value){
+        if(node === null){
+            return null
+        }
+        if(node.value === value){
+            this.size--
+            return node.next
+        }
+        node.next = this.recursiveRemoveValue(node.next , value)
+        return node
+     }
+
+     remove(value){
+        if(this.head === null){
+            return 
+        }
+        this.head = this.recursiveRemoveValue(this.head , value)
+     }
+
 
     print(){
         if(this.head === null){
@@ -244,5 +263,7 @@ merged.recursiveReverse()
 merged.print()
 console.log('searching',merged.recursiveSearch(5))
 merged.removeDubRecursive()
+merged.print()
+console.log('remove value ',merged.remove(4))
 merged.print()
 
