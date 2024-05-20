@@ -207,6 +207,30 @@ class LinkedList {
 
     }
 
+    rotate(k){
+        if(k === 0 || this.head === null){
+            return
+        }
+        let length = 1
+        let curr = this.head
+        while(curr.next!==null){
+            curr = curr.next
+            length++
+        }
+        curr.next = this.head
+        let breakPoint = length - k % length
+        if(breakPoint === length){
+            curr.next = null
+            return 
+        }
+        let newTail = this.head
+        for(let i = 1;i < breakPoint ; i++){
+            newTail = newTail.next
+        }
+        this.head = newTail.next
+        newTail.next = null
+    }
+
     print (){
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -238,12 +262,13 @@ const result2 = new LinkedList()
 result2.append(40)
 result2.append(50)
 result2.append(60)
-result2.append(60)
+result2.append(70)
 
 result2.print()
 
 const merged = result1.mergeTwo(result1,result2)
 console.log('finding middle',merged.findMiddle())
+merged.rotate(4)
 merged.print()
 
 
