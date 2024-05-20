@@ -217,6 +217,22 @@ class LinkedList {
      }
 
 
+     removeIndexRecursively(index, node = this.head, prev = null) {
+        if (index < 0 || index >= this.size || node === null) {
+            return;
+        }
+        if (index === 0) {
+            if (prev === null) {
+                this.head = node.next;
+            } else {
+                prev.next = node.next;
+            }
+            this.size--;
+            return;
+        }
+        this.removeIndexRecursively(index - 1, node.next, node);
+    }
+
     print(){
         if(this.head === null){
             console.log('the list is empty')
@@ -265,5 +281,7 @@ console.log('searching',merged.recursiveSearch(5))
 merged.removeDubRecursive()
 merged.print()
 console.log('remove value ',merged.remove(4))
+merged.print()
+console.log('remove index',merged.removeIndexRecursively(1))
 merged.print()
 
