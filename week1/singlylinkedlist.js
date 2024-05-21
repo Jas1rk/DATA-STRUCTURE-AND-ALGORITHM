@@ -1,51 +1,4 @@
 
-// class Node {
-//     constructor(value){
-//         this.value = value
-//         this.next = null
-//     }
-// }
-
-// class LinkedList {
-//     constructor() {
-//         this.head = null
-//         this.size = 0
-//     }
-
-//     getSize(){
-//         return this.size
-//     }
-
-//     isEmpty(){
-//         return  this.size === 0
-//     }
-
-//     prepend(value){
-//         const node = new Node(value)
-//         if(this.isEmpty()){
-//            this.head = node
-//         }else{
-//             node.next = this.head
-//             this.head = node
-//         }
-//         this.size++
-//     }
-
-//     append(value){ //appending new node to end of linked list
-//         const node = new Node(value)
-//         if(this.isEmpty()){
-//             this.head = node
-//         }else{
-//             let prev = this.head    
-//             while(prev.next){
-//                 prev = prev.next
-//             }
-//             prev.next = node
-//         }
-//         this.size++
-//     }
-
-    
 
 //     insert(value,index){ //insert new node to linked list 
 //         if(index < 0 || index > this.size){
@@ -67,19 +20,6 @@
 //     }
 
 
-//     reverse(){ //reversing the nodes by order
-//        let preview = null
-//        let current = this.head
-//        let next = null
-//        while(current){
-//           next = current.next
-//           current.next = preview
-//           preview = current
-//           current = next
-          
-//        }
-//        this.head = preview
-//     }
 
 //     removeAt(index){ //removing index
 //         if(index<0||index>this.size){
@@ -97,19 +37,6 @@
 //             }
 //             prev.next = curr.next 
 //             this.size--
-//         }
-//     }
-
-//     removeDublicate(){ //removing the dublicates 
-//         let curr  = this.head
-//         while(curr!==null && curr.next!==null){
-//             if(curr.value === curr.next.value){
-//                 curr.next = curr.next.next
-//                 this.size--
-        
-//             }else{
-//                 curr = curr.next
-//             }
 //         }
 //     }
 
@@ -135,24 +62,6 @@
 //             return null
 //         }
 //     }
-
-//     search(value){ //serching index in linked list
-//         if(this.isEmpty()){
-//             return -1
-//         }
-//         let i = 0
-//         let curr = this.head
-//         while(curr){
-//             if(curr.value === value){
-//                 return i
-//             }
-//             curr = curr.next
-//             i++
-//         }
-//         return -1
-       
-//     }
-
 
 
 //     // mergeTwo(list1,list2){
@@ -310,6 +219,66 @@ class LinkedList {
 
     }
 
+    search(value){ /// this method is to search value from linked list and return the position of value
+        if(this.isEmpty()){
+            return null
+        }
+        let  i = 0
+        let curr = this.head
+        while(curr){
+            if(curr.value === value){
+                return i
+            }
+            curr = curr.next
+            i++
+        }
+        return 'no value found'
+
+    }
+
+    reverse(){   /// this method is reversing the linked list
+        let curr = this.head 
+        let prev = null
+
+        while(curr){
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+
+    removeDublicate(){  //// for removing the dublicate elements
+
+        //    let curr  = this.head
+        //         while(curr!==null && curr.next!==null){
+        //             if(curr.value === curr.next.value){
+        //                 curr.next = curr.next.next
+        //                 this.size--
+                
+        //             }else{
+        //                 curr = curr.next
+        //             }
+        //         }
+
+        let seen = new Set()
+        let curr = this.head
+        let prev = null
+        while(curr){
+            if(seen.has(curr.value)){
+                prev.next = curr.next
+                this.size--
+            }else{
+                seen.add(curr.value)
+                prev = curr
+            }
+            curr = curr.next
+        }
+
+        
+    }
+
     print(){ /// to print the values
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -333,6 +302,7 @@ result1.append(10)
 result1.append(30)
 result1.append(50)
 result1.append(20)
+
 result1.print()
 
 const result2 = new LinkedList()
@@ -342,6 +312,12 @@ result2.append(78)
 result2.append(98)
 result2.append(23)
 result2.append(67)
+result2.append(90)
+result2.append(78)
+result2.append(98)
+result2.append(23)
+result2.append(67)
+
 result2.print()
 
 console.log('after merging')
@@ -357,6 +333,14 @@ console.log('finding middle  : ',mergedList.findMiddle())
 console.log('after sorting')
 mergedList.sort()
 mergedList.print()
+console.log('the searched value is :',mergedList.search(30))
+mergedList.reverse()
+mergedList.print()
+console.log('removed the dublicates')
+mergedList.removeDublicate()
+mergedList.print()
+
+
 
 
 
