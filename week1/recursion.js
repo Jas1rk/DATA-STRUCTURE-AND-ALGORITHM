@@ -8,6 +8,16 @@ console.log(recursiveFibonacci(6))
 console.log(recursiveFibonacci(0))
 console.log(recursiveFibonacci(1))
 
+
+function fib(a,b){
+    if(a >= 100){
+        return
+    }
+    console.log(a)
+    fib(b,a+b)
+
+}
+fib(0,1)
 //////////// recursive factorial /////
 
 
