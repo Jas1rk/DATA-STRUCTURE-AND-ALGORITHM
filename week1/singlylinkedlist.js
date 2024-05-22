@@ -1,45 +1,4 @@
 
-
-//     insert(value,index){ //insert new node to linked list 
-//         if(index < 0 || index > this.size){
-//             return
-//         }
-//         if(index === 0){
-//             return this.prepend(value)
-//         }else{
-//             const node = new Node(value)
-//             let prev = this.head
-//             for(let i=0;i<index-1;i++){
-//                 prev = prev.next
-//             }
-//             node.next = prev.next
-//             prev.next = node
-//             this.size++
-
-//         }
-//     }
-
-
-
-//     removeAt(index){ //removing index
-//         if(index<0||index>this.size){
-//             return
-//         }
-//         let curr = this.head
-//         if(index===0){
-//             this.head = curr.next
-           
-//         }else{
-//             let prev = null
-//             for(let i=0;i<index;i++){
-//                 prev = curr
-//                 curr = curr.next
-//             }
-//             prev.next = curr.next 
-//             this.size--
-//         }
-//     }
-
 //     removeValue(value){ //removing the values 
 //         if(this.isEmpty()){
 //             return null
@@ -64,72 +23,6 @@
 //     }
 
 
-//     // mergeTwo(list1,list2){
-//     //     const  dummy = new Node(0)
-//     //     let current = dummy
-
-//     //     let l1 = list1.head
-//     //     let l2 = list2.head
-
-//     //     while(l1!==null&&l2!==null){
-//     //         if(l1.value<=l2.value){
-//     //             current.next = l1
-//     //             l1 = l1.next
-//     //         }else{
-//     //             current.next = l2
-//     //             l2 = l2.next
-//     //         }
-//     //         current = current.next
-//     //     }
-//     //     if(l1!==null){
-//     //         current.next = l1
-//     //     }
-//     //     if(l2!==null){
-//     //         current.next = l2
-//     //     }
-
-//     //     const mergedList = new LinkedList()
-//     //     mergedList.head = dummy.next
-//     //     let size = 0
-//     //     let temp = mergedList.head
-//     //     while(temp!==null){
-//     //         size++
-//     //         temp = temp.next
-
-//     //     }
-//     //     mergedList.size = size
-
-//     //     return mergedList
-            
-
-//     // }
-     
-
-
-
-//     rotate(k){
-//         if(k === 0 || this.head === null){
-//             return
-//         }
-//         let length = 1
-//         let curr = this.head
-//         while(curr.next!==null){
-//             curr = curr.next
-//             length++
-//         }
-//         curr.next = this.head
-//         let breakPoint = length - k % length
-//         if(breakPoint === length){
-//             curr.next = null
-//             return 
-//         }
-//         let newTail = this.head
-//         for(let i = 1;i < breakPoint ; i++){
-//             newTail = newTail.next
-//         }
-//         this.head = newTail.next
-//         newTail.next = null
-//     }
 
 
 
@@ -175,6 +68,43 @@ class LinkedList {
         }
         this.size++
 
+    }
+
+    insert(value,index){
+        if(index < 0 || index > this.size){
+            return
+        }
+        if(index === 0){
+            return this.prepend(value)
+        }else{
+            const node = new Node(value)
+            let prev = this.head
+            for(let i=0;i<index-1;i++){
+                prev = prev.next
+            }
+            node.next = prev.next
+            prev.next = node
+            this.size++
+        }
+    }
+
+    removeIndex(index){
+        if(index < 0 || index > this.size){
+            return
+        }
+        let curr = this.head
+        if(index === 0){
+            this.head = curr.next
+        }else{
+            let prev = null
+            for(let i=0;i<index;i++){
+                prev = curr
+                curr = curr.next
+            }
+            prev.next = curr.next
+            this.size--
+
+        }
     }
 
     merge(list1,list2){ /// merging two linked list 
@@ -286,6 +216,30 @@ class LinkedList {
         this.head = this.head.next
     }
 
+    rotate(k){
+        if(k==0||this.head==null){
+            return
+        }
+        let count = 1
+        let curr = this.head
+        while(curr.next!==null){
+            curr = curr.next
+            count++
+        }
+        curr.next = this.head
+        let breakPoint = count - k%count
+        if(breakPoint === count){
+            curr.next = null
+            return 
+        }
+        let newTail = this.head
+        for(let i=0;i<breakPoint;i++){
+            newTail = newTail.next
+        }
+        this.head = newTail.next
+        newTail.next = null
+    }
+
     removeLast(){
         if(this.isEmpty()){
             return 'list is empty'
@@ -364,6 +318,65 @@ mergedList.print()
 console.log('removing the last node')
 mergedList.removeLast()
 mergedList.print()
+console.log('rotating');
+mergedList.rotate(4)
+mergedList.print()
+mergedList.insert(4,1)
+mergedList.print()
+console.log('removing index')
+mergedList.removeIndex(2)
+mergedList.print()
+
+
+
+
+
+
+
+
+//     // mergeTwo(list1,list2){
+//     //     const  dummy = new Node(0)
+//     //     let current = dummy
+
+//     //     let l1 = list1.head
+//     //     let l2 = list2.head
+
+//     //     while(l1!==null&&l2!==null){
+//     //         if(l1.value<=l2.value){
+//     //             current.next = l1
+//     //             l1 = l1.next
+//     //         }else{
+//     //             current.next = l2
+//     //             l2 = l2.next
+//     //         }
+//     //         current = current.next
+//     //     }
+//     //     if(l1!==null){
+//     //         current.next = l1
+//     //     }
+//     //     if(l2!==null){
+//     //         current.next = l2
+//     //     }
+
+//     //     const mergedList = new LinkedList()
+//     //     mergedList.head = dummy.next
+//     //     let size = 0
+//     //     let temp = mergedList.head
+//     //     while(temp!==null){
+//     //         size++
+//     //         temp = temp.next
+
+//     //     }
+//     //     mergedList.size = size
+
+//     //     return mergedList
+            
+
+//     // }
+     
+
+
+
 
 
 
