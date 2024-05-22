@@ -276,7 +276,26 @@ class LinkedList {
             curr = curr.next
         }
 
-        
+
+    }
+
+    removeFirst(){ // this method is to remove the first node of linked list
+        if(this.isEmpty()){
+            return 'the list is empty'
+        }
+        this.head = this.head.next
+    }
+
+    removeLast(){
+        if(this.isEmpty()){
+            return 'list is empty'
+        }
+        let curr = this.head
+        while(curr.next && curr.next.next) {
+            curr = curr.next
+            
+        }
+        curr.next = null
     }
 
     print(){ /// to print the values
@@ -338,6 +357,12 @@ mergedList.reverse()
 mergedList.print()
 console.log('removed the dublicates')
 mergedList.removeDublicate()
+mergedList.print()
+console.log('removing the first node')
+mergedList.removeFirst()
+mergedList.print()
+console.log('removing the last node')
+mergedList.removeLast()
 mergedList.print()
 
 
