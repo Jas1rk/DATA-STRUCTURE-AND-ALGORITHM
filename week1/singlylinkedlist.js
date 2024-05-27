@@ -1,31 +1,4 @@
 
-//     removeValue(value){ //removing the values 
-//         if(this.isEmpty()){
-//             return null
-//         }
-//         if(this.head.value === value){
-//             this.head = this.head.next
-//             this.size--
-//             return value
-//         }else{
-//             let prev = this.head
-//             while(prev.next && prev.next.value!==value){
-//                 prev = prev.next
-//             }
-//             if(prev.next){
-//                const removenode = prev.next
-//                 prev.next = removenode.next
-//                 this.size--
-//                 return value
-//             }
-//             return null
-//         }
-//     }
-
-
-
-
-
 class Node {
     constructor(value){
         this.value = value
@@ -104,6 +77,31 @@ class LinkedList {
             prev.next = curr.next
             this.size--
 
+        }
+    }
+
+    removeValue(value){
+        if(this.isEmpty()){
+            return null
+        }
+        if(this.head.value === value){
+            this.head = this.head.next
+            this.size--
+            return value
+        }else{
+            let prev = this.head
+            while(prev.next&&prev.next.value!==value){
+                prev = prev.next
+            }
+                if(prev.next){
+                    const removenode = prev.next
+                    prev.next = removenode.next
+                    this.size--
+                    return value
+                }
+
+                return null
+            
         }
     }
 
@@ -205,7 +203,6 @@ class LinkedList {
             }
             curr = curr.next
         }
-
 
     }
 
@@ -326,6 +323,9 @@ mergedList.print()
 console.log('removing index')
 mergedList.removeIndex(2)
 mergedList.print()
+mergedList.removeValue(67)
+mergedList.print()
+
 
 
 
