@@ -19,3 +19,28 @@ const input = "Hello"
 const n = 3
 console.log('orginal: ',input)
 console.log('replaced :',replaceAlphabet(input,n))
+
+
+
+//////////////////////////////////   reverese string //////
+
+
+
+function reverseString(str){
+    if(str.length <= 1){
+        return str
+    }
+
+    return reverseString(str.slice(1)) + str[0]
+}
+
+const originalString  = 'hello'
+console.log(originalString)
+const reversed = reverseString(originalString)
+console.log(reversed)
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
