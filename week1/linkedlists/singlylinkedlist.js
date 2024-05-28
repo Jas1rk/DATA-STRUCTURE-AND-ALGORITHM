@@ -249,6 +249,26 @@ class LinkedList {
         curr.next = null
     }
 
+    searchTwo(val1,val2){
+        let curr = this.head
+        let pos1 = -1
+        let pos2 = -1
+        let count = 0 
+        while(curr){
+            if(curr.value === val1 && pos1 -1){
+                pos1 = count
+            }else if(curr.value === val2 && pos2 -1){
+                pos2 = count
+            }
+            if(pos1!== -1 && pos2!== -1){
+                break
+            }
+            curr = curr.next
+            count++
+        }
+        return {pos1,pos2}
+    }
+
     print(){ /// to print the values
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -325,13 +345,7 @@ mergedList.removeIndex(2)
 mergedList.print()
 mergedList.removeValue(67)
 mergedList.print()
-
-
-
-
-
-
-
+console.log(mergedList.searchTwo(23,50))
 
 
 //     // mergeTwo(list1,list2){
