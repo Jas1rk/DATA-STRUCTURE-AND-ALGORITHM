@@ -140,6 +140,7 @@ class LinkedList {
                     let temp = curr.value
                     curr.value = curr.next.value
                     curr.next.value = temp
+                    swapped = true
                 }
                 curr = curr.next
             }
@@ -305,11 +306,7 @@ result2.append(78)
 result2.append(98)
 result2.append(23)
 result2.append(67)
-result2.append(90)
-result2.append(78)
-result2.append(98)
-result2.append(23)
-result2.append(67)
+
 
 result2.print()
 
