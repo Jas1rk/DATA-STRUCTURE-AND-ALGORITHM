@@ -179,30 +179,33 @@ class LinkedList {
 
     removeDublicate(){  //// for removing the dublicate elements
 
-        //    let curr  = this.head
-        //         while(curr!==null && curr.next!==null){
-        //             if(curr.value === curr.next.value){
-        //                 curr.next = curr.next.next
-        //                 this.size--
-                
-        //             }else{
-        //                 curr = curr.next
-        //             }
-        //         }
-
-        let seen = new Set()
-        let curr = this.head
-        let prev = null
-        while(curr){
-            if(seen.has(curr.value)){
-                prev.next = curr.next
+       let curr = this.head
+       while(curr){
+        let running = curr
+        while(running.next){
+            if(running.next.value === curr.value){
+                running.next = running.next.next
                 this.size--
             }else{
-                seen.add(curr.value)
-                prev = curr
+                running = running.next
             }
-            curr = curr.next
         }
+        curr = curr.next
+       }
+
+        // let seen = new Set()
+        // let curr = this.head
+        // let prev = null
+        // while(curr){
+        //     if(seen.has(curr.value)){
+        //         prev.next = curr.next
+        //         this.size--
+        //     }else{
+        //         seen.add(curr.value)
+        //         prev = curr
+        //     }
+        //     curr = curr.next
+        // }
 
     }
 
