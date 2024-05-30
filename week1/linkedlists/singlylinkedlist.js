@@ -273,6 +273,16 @@ class LinkedList {
         return {pos1,pos2}
     }
 
+    sum(){
+        let curr = this.head
+        let total = 0 
+        while(curr){
+            total += curr.value
+            curr= curr.next
+        }
+        return total
+    }
+
     print(){ /// to print the values
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -346,6 +356,7 @@ mergedList.print()
 mergedList.removeValue(67)
 mergedList.print()
 console.log(mergedList.searchTwo(23,50))
+console.log('Total of linkedlist',mergedList.sum())
 
 
 //     // mergeTwo(list1,list2){
