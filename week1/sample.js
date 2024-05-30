@@ -57,12 +57,12 @@
 
 
 
-class Node {
-    constructor(value){
-        this.value = value
-        this.next = null
-    }
-}
+// class Node {
+//     constructor(value){
+//         this.value = value
+//         this.next = null
+//     }
+// }
 
 // class LinkedList {
 //     constructor(){
@@ -159,9 +159,36 @@ class Node {
 
 
 
-function recursiveFibounacci(n){
-    let fib =  [0,1]
-    for(let i = 2;i<n.length;i++ ){
-        return recursiveFibounacci(fib) + recursiveFibounacci(fib)
+
+
+
+function fibnach(n){
+    if(n<2){
+        return n 
     }
+    return fibnach(n-1)+fibnach(n-2)
 }
+console.log(fibnach(8))
+
+
+
+
+// function binary (arr,target){
+//     arr.sort((a,b)=> a-b)
+//     let leftIndex = 0 
+//     let rightIndex = arr.length -1
+//     while(leftIndex <= rightIndex){
+//         let middle = Math.floor((leftIndex + rightIndex) / 2)
+//         if(target === arr[middle]){
+//             return middle
+//         }
+//         if(target < arr[middle]){
+//             rightIndex = middle - 1
+//         }else{
+//             leftIndex = middle + 1
+//         }
+//     }
+//     return -1
+// }
+
+// console.log(binary([1,2,5,4,6,7,3],4))

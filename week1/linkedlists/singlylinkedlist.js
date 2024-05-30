@@ -140,6 +140,7 @@ class LinkedList {
                     let temp = curr.value
                     curr.value = curr.next.value
                     curr.next.value = temp
+                    swapped = true
                 }
                 curr = curr.next
             }
@@ -272,6 +273,16 @@ class LinkedList {
         return {pos1,pos2}
     }
 
+    sum(){
+        let curr = this.head
+        let total = 0 
+        while(curr){
+            total += curr.value
+            curr= curr.next
+        }
+        return total
+    }
+
     print(){ /// to print the values
         if(this.isEmpty()){
             console.log('The list is empty')
@@ -305,11 +316,7 @@ result2.append(78)
 result2.append(98)
 result2.append(23)
 result2.append(67)
-result2.append(90)
-result2.append(78)
-result2.append(98)
-result2.append(23)
-result2.append(67)
+
 
 result2.print()
 
@@ -349,6 +356,7 @@ mergedList.print()
 mergedList.removeValue(67)
 mergedList.print()
 console.log(mergedList.searchTwo(23,50))
+console.log('Total of linkedlist',mergedList.sum())
 
 
 //     // mergeTwo(list1,list2){
