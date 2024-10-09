@@ -1,6 +1,17 @@
-let arr =  [60,45,50,123,1,10,3]
-bubbleSort(arr)
-function bubbleSort(arr){
-    return arr.sort((a,b)=> a-b)
+let arr = [60, 45, 50, 123, 1, 10, 3];
+bubbleSort(arr);
+function bubbleSort(arr) {
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true 
+      }
+    }
+  } while (swapped);
 }
-console.log("sorted array is",arr)
+console.log("sorted array is", arr);
